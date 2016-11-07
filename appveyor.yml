@@ -11,7 +11,11 @@ build_script:
 
     REM Utilities
 
-    dotnet build -c Release DemoApp
+    dotnet build -c Release Examples\ListAllObjects
+
+    dotnet build -c Release Examples\ListAllObjectsAndLinks
+
+    dotnet build -c Release Examples\ShowObjectTypes
 artifacts:
 - path: Nuget\*.nupkg
 deploy:

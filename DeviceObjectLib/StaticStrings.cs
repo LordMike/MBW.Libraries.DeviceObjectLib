@@ -4,6 +4,7 @@ namespace DeviceObjectLib
     internal static class StaticStrings
     {
         public const string DeviceRoot = @"\Device";
+        public const string GlobalRoot = @"\GLOBAL??";
 
         public const string ALPCPort = "ALPC Port";
         public const string Adapter = "Adapter";

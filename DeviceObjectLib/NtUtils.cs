@@ -15,7 +15,7 @@ namespace DeviceObjectLib
         private static readonly Regex HarddiskPartitionRegex = new Regex(@"^Harddisk([0-9]+)Partition([0-9]+)$", RegexOptions.Compiled);
         private static readonly Regex HarddiskRegex = new Regex(@"Harddisk([0-9]+)$", RegexOptions.Compiled);
         private static readonly Regex DriveLetterRegex = new Regex(@"([A-Z]+):$", RegexOptions.Compiled);
-        
+
         public static IEnumerable<NtObjectBase> ListDirectory(string path, bool recurse = false, WellKnownType filterType = WellKnownType.Unknown)
         {
             OBJECT_ATTRIBUTES objectAttributes = new OBJECT_ATTRIBUTES(path, 0);
@@ -159,7 +159,7 @@ namespace DeviceObjectLib
 
         public static IEnumerable<PhysicalDriveIdentifier> GetPhysicalDrives()
         {
-            foreach (NtObjectBase objectBase in ListDirectoryObjects(StaticStrings.DeviceRoot, filterType: WellKnownType.SymbolicLink))
+            foreach (NtObjectBase objectBase in ListDirectoryObjects(StaticStrings.GlobalRoot, filterType: WellKnownType.SymbolicLink))
             {
                 PhysicalDriveIdentifier obj = objectBase as PhysicalDriveIdentifier;
                 if (obj == null)
@@ -183,23 +183,36 @@ namespace DeviceObjectLib
 
         public static IEnumerable<HarddiskPartitionIdentifier> GetHarddiskPartitions()
         {
-            foreach (PhysicalDriveIdentifier physicalDrive in GetPhysicalDrives())
-                foreach (HarddiskPartitionIdentifier identifier in GetHarddiskPartitions(physicalDrive))
-                    yield return identifier;
+            // For multiple disks, we can look at the root of the global directory
+            IEnumerable<NtObjectBase> objects = ListDirectory(StaticStrings.GlobalRoot, filterType: WellKnownType.SymbolicLink);
+
+            foreach (NtObjectBase @base in objects)
+            {
+                if (!HarddiskPartitionRegex.IsMatch(@base.Name))
+                    continue;
+
+                HarddiskPartitionIdentifier item = ConvertToSpecificType(@base) as HarddiskPartitionIdentifier;
+
+                if (item != null)
+                    yield return item;
+            }
         }
 
         public static IEnumerable<HarddiskPartitionIdentifier> GetHarddiskPartitions(PhysicalDriveIdentifier physicalDrive)
         {
-            throw new NotImplementedException();
-            //IEnumerable<NtObjectBase> objectsList = ListDirectoryObjects(physicalDrive.ObjectFolderAddress, filterType: WellKnownType.SymbolicLink);
+            // For a single disk, we can look at the specific directory
+            IEnumerable<NtObjectBase> objects = ListDirectory(physicalDrive.ObjectFolderAddress, filterType: WellKnownType.SymbolicLink);
 
-            //IEnumerable<string> partitions = objectsList.Where(s => s.TypeName == StaticStrings.SymbolicLink && s.Name.StartsWith("Partition")).Select(s => s.Name);
+            foreach (NtObjectBase @base in objects)
+            {
+                if (!PartitionRegex.IsMatch(@base.Name))
+                    continue;
 
-            //foreach (string partition in partitions)
-            //{
-            //    string strInt = partition.Substring("Partition".Length);
-            //    yield return new HarddiskPartitionIdentifier(physicalDrive, int.Parse(strInt));
-            //}
+                HarddiskPartitionIdentifier item = ConvertToSpecificType(@base) as HarddiskPartitionIdentifier;
+
+                if (item != null)
+                    yield return item;
+            }
         }
     }
 }

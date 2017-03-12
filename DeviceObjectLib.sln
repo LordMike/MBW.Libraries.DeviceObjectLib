@@ -1,22 +1,17 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26114.2
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{63DD888D-4402-46EA-BC76-206BC1B0AFC5}"
-	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
-	EndProjectSection
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DeviceObjectLib", "DeviceObjectLib\DeviceObjectLib.xproj", "{7D920E21-0DBC-4268-95C4-535F9FD9D99D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceObjectLib", "DeviceObjectLib\DeviceObjectLib.csproj", "{7D920E21-0DBC-4268-95C4-535F9FD9D99D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{15494560-6CD7-420D-BBFC-55A84BEE3A8E}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ListAllObjects", "Examples\ListAllObjects\ListAllObjects.xproj", "{A2B4BEB3-D9FE-4E65-B6F5-59F1B7A4B63D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListAllObjects", "Examples\ListAllObjects\ListAllObjects.csproj", "{A2B4BEB3-D9FE-4E65-B6F5-59F1B7A4B63D}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ListAllObjectsAndLinks", "Examples\ListAllObjectsAndLinks\ListAllObjectsAndLinks.xproj", "{2BD2A414-437A-46B9-BDB2-CE2B898BDBB6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListAllObjectsAndLinks", "Examples\ListAllObjectsAndLinks\ListAllObjectsAndLinks.csproj", "{2BD2A414-437A-46B9-BDB2-CE2B898BDBB6}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ShowObjectTypes", "Examples\ShowObjectTypes\ShowObjectTypes.xproj", "{7D2B4E68-15F0-4809-A8E8-267D5F78AE51}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShowObjectTypes", "Examples\ShowObjectTypes\ShowObjectTypes.csproj", "{7D2B4E68-15F0-4809-A8E8-267D5F78AE51}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

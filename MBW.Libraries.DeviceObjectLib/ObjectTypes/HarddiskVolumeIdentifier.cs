@@ -14,13 +14,13 @@
         /// Can be used in File.Open() scenarios.
         /// Typically \\?\GLOBAL\HarddiskVolumeX
         /// </summary>
-        public string FileAddress => @"\\?\GLOBAL\HarddiskVolume" + Identifier;
+        public string FileAddress => $@"\\?\GLOBAL\HarddiskVolume{Identifier}";
 
         /// <summary>
         /// Can be used to work with the NT Object Tree
         /// Typically \Device\HarddiskVolumeX
         /// </summary>
-        public string DeviceAddress => @"\Device\HarddiskVolume" + Identifier;
+        public string DeviceAddress => $@"\Device\HarddiskVolume{Identifier}";
 
         public override string ToString()
         {

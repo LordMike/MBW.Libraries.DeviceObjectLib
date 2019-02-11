@@ -9,10 +9,7 @@ namespace MBW.Libraries.DeviceObjectLib.Utilities
 
         public int Bytes { get; }
 
-        public IntPtr Handle
-        {
-            get { return _handle; }
-        }
+        public IntPtr Handle => _handle;
 
         public UnmanagedMemory(int bytes)
         {

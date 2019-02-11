@@ -20,15 +20,12 @@ namespace MBW.Libraries.DeviceObjectLib
         public static IEnumerable<NtObjectBase> ListDirectory(string path, bool recurse = false, WellKnownType filterType = WellKnownType.Unknown)
         {
             OBJECT_ATTRIBUTES objectAttributes = new OBJECT_ATTRIBUTES(path, 0);
-            IntPtr directoryHandleUnsafe;
-            NtStatus retVal = Win32.NtOpenDirectoryObject(out directoryHandleUnsafe, DirectoryAccessEnum.DIRECTORY_QUERY, ref objectAttributes);
+            NtStatus retVal = Win32.NtOpenDirectoryObject(out IntPtr directoryHandleUnsafe, DirectoryAccessEnum.DIRECTORY_QUERY, ref objectAttributes);
 
             if (retVal != NtStatus.STATUS_SUCCESS)
-                throw new Exception("NtOpenDirectoryObject Error code: " + retVal + ", parentPath: " + path);
+                throw new Exception($"NtOpenDirectoryObject Error code: {retVal}, parentPath: {path}");
 
-            SafeFileHandle directoryHandle = new SafeFileHandle(directoryHandleUnsafe);
-
-            using (directoryHandle)
+            using (SafeFileHandle directoryHandle = new SafeFileHandle(directoryHandleUnsafe))
             {
                 uint singleDirInfo = (uint)Marshal.SizeOf<OBJECT_DIRECTORY_INFORMATION>();
                 using (UnmanagedMemory mem = new UnmanagedMemory((int)(256 * singleDirInfo)))
@@ -39,8 +36,7 @@ namespace MBW.Libraries.DeviceObjectLib
 
                     do
                     {
-                        uint returnLength;
-                        status = Win32.NtQueryDirectoryObject(directoryHandle.Handle, mem.Handle, mem.Bytes, false, restart, ref context, out returnLength);
+                        status = Win32.NtQueryDirectoryObject(directoryHandle.Handle, mem.Handle, mem.Bytes, false, restart, ref context, out _);
                         restart = false;
 
                         IntPtr ptr = mem.Handle;
@@ -192,9 +188,7 @@ namespace MBW.Libraries.DeviceObjectLib
                 if (!HarddiskPartitionRegex.IsMatch(@base.Name))
                     continue;
 
-                HarddiskPartitionIdentifier item = ConvertToSpecificType(@base) as HarddiskPartitionIdentifier;
-
-                if (item != null)
+                if (ConvertToSpecificType(@base) is HarddiskPartitionIdentifier item)
                     yield return item;
             }
         }
@@ -209,9 +203,7 @@ namespace MBW.Libraries.DeviceObjectLib
                 if (!PartitionRegex.IsMatch(@base.Name))
                     continue;
 
-                HarddiskPartitionIdentifier item = ConvertToSpecificType(@base) as HarddiskPartitionIdentifier;
-
-                if (item != null)
+                if (ConvertToSpecificType(@base) is HarddiskPartitionIdentifier item)
                     yield return item;
             }
         }

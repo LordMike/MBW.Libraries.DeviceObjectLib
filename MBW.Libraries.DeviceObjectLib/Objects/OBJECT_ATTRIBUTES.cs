@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
+// ReSharper disable FieldCanBeMadeReadOnly.Global
+// ReSharper disable InconsistentNaming
+// ReSharper disable MemberCanBePrivate.Global
+
 namespace MBW.Libraries.DeviceObjectLib.Objects
 {
     [StructLayout(LayoutKind.Sequential)]
@@ -29,27 +33,25 @@ namespace MBW.Libraries.DeviceObjectLib.Objects
 
         public UNICODE_STRING ObjectName
         {
-            get
-            {
-                return Marshal.PtrToStructure<UNICODE_STRING>(objectName);
-            }
+            get => Marshal.PtrToStructure<UNICODE_STRING>(objectName);
             set
             {
                 bool fDeleteOld = objectName != IntPtr.Zero;
                 if (!fDeleteOld)
                     objectName = Marshal.AllocHGlobal(Marshal.SizeOf(value));
+
                 Marshal.StructureToPtr(value, objectName, fDeleteOld);
             }
         }
 
         public void Dispose()
         {
-            if (objectName != IntPtr.Zero)
-            {
-                Marshal.DestroyStructure(objectName, typeof(UNICODE_STRING));
-                Marshal.FreeHGlobal(objectName);
-                objectName = IntPtr.Zero;
-            }
+            if (objectName == IntPtr.Zero)
+                return;
+
+            Marshal.DestroyStructure<UNICODE_STRING>(objectName);
+            Marshal.FreeHGlobal(objectName);
+            objectName = IntPtr.Zero;
         }
     }
 }

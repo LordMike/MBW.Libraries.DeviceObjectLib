@@ -31,28 +31,25 @@ namespace MBW.Libraries.DeviceObjectLib.ObjectTypes
                 throw new InvalidOperationException("Not a symbolic link");
 
             OBJECT_ATTRIBUTES attrib = new OBJECT_ATTRIBUTES(FullName, 0);
-
-            IntPtr handleUnsafe;
-            NtStatus retVal = Win32.NtOpenSymbolicLinkObject(out handleUnsafe, DirectoryAccessEnum.DIRECTORY_QUERY, ref attrib);
+            NtStatus retVal = Win32.NtOpenSymbolicLinkObject(out IntPtr handleUnsafe, DirectoryAccessEnum.DIRECTORY_QUERY, ref attrib);
 
             if (retVal != NtStatus.STATUS_SUCCESS)
-                throw new Exception("NtOpenSymbolicLinkObject, return: " + retVal);
+                throw new Exception($"NtOpenSymbolicLinkObject, return: {retVal}");
 
             using (SafeFileHandle handle = new SafeFileHandle(handleUnsafe))
             {
-                int retLength;
                 UNICODE_STRING target = new UNICODE_STRING();
-                NtStatus retVal2 = Win32.NtQuerySymbolicLinkObject(handle.Handle, ref target, out retLength);
+                NtStatus retVal2 = Win32.NtQuerySymbolicLinkObject(handle.Handle, ref target, out int retLength);
 
-                if (retVal2 == NtStatus.STATUS_BUFFER_TOO_SMALL)
-                {
-                    target = new UNICODE_STRING(retLength);
+                if (retVal2 != NtStatus.STATUS_BUFFER_TOO_SMALL)
+                    return target.ToString();
 
-                    retVal2 = Win32.NtQuerySymbolicLinkObject(handle.Handle, ref target, out retLength);
+                target = new UNICODE_STRING(retLength);
 
-                    if (retVal2 != NtStatus.STATUS_SUCCESS)
-                        throw new Exception("Unable to get target: " + retVal2);
-                }
+                retVal2 = Win32.NtQuerySymbolicLinkObject(handle.Handle, ref target, out retLength);
+
+                if (retVal2 != NtStatus.STATUS_SUCCESS)
+                    throw new Exception($"Unable to get target: {retVal2}");
 
                 return target.ToString();
             }

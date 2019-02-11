@@ -16,13 +16,13 @@
         /// Can be used in File.Open() scenarios.
         /// Typically \\?\GLOBAL\HarddiskXPartitionY
         /// </summary>
-        public string FileAddress => @"\\?\GLOBAL\Harddisk" + Harddisk + "Partition" + Partition;
+        public string FileAddress => $@"\\?\GLOBAL\Harddisk{Harddisk}Partition{Partition}";
 
         /// <summary>
         /// Can be used to work with the NT Object Tree
         /// Typically \Device\HarddiskXPartitionY
         /// </summary>
-        public string DeviceAddress => @"\Device\Harddisk" + Harddisk + "Partition" + Partition;
+        public string DeviceAddress => $@"\Device\Harddisk{Harddisk}Partition{Partition}";
 
         public override string ToString()
         {

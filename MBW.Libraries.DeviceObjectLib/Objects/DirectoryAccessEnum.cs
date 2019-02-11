@@ -1,5 +1,7 @@
 ﻿using System;
 
+// ReSharper disable InconsistentNaming
+
 namespace MBW.Libraries.DeviceObjectLib.Objects
 {
     [Flags]

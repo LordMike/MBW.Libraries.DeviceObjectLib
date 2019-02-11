@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DeviceObjectLib.Objects
+namespace MBW.Libraries.DeviceObjectLib.Objects
 {
     [Flags]
     internal enum DirectoryAccessEnum

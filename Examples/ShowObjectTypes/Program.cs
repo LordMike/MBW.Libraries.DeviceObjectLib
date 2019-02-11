@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using DeviceObjectLib;
-using DeviceObjectLib.ObjectTypes;
+using MBW.Libraries.DeviceObjectLib;
+using MBW.Libraries.DeviceObjectLib.ObjectTypes;
 
 namespace ShowObjectTypes
 {

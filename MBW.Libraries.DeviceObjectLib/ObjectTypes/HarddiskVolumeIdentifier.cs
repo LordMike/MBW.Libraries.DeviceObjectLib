@@ -1,4 +1,4 @@
-﻿namespace DeviceObjectLib.ObjectTypes
+﻿namespace MBW.Libraries.DeviceObjectLib.ObjectTypes
 {
     public class HarddiskVolumeIdentifier : NtObjectBase
     {

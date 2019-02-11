@@ -1,5 +1,5 @@
 ﻿// ReSharper disable InconsistentNaming
-namespace DeviceObjectLib
+namespace MBW.Libraries.DeviceObjectLib
 {
     public enum WellKnownType
     {

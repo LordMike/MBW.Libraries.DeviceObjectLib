@@ -1,8 +1,8 @@
 ﻿using System;
-using DeviceObjectLib.Objects;
-using DeviceObjectLib.Utilities;
+using MBW.Libraries.DeviceObjectLib.Objects;
+using MBW.Libraries.DeviceObjectLib.Utilities;
 
-namespace DeviceObjectLib.ObjectTypes
+namespace MBW.Libraries.DeviceObjectLib.ObjectTypes
 {
     public class NtObjectBase
     {

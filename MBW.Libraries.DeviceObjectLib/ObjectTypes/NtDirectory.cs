@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DeviceObjectLib.ObjectTypes
+namespace MBW.Libraries.DeviceObjectLib.ObjectTypes
 {
     public class NtDirectory : NtObjectBase
     {

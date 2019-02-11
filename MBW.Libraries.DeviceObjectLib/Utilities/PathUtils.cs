@@ -1,4 +1,4 @@
-﻿namespace DeviceObjectLib.Utilities
+﻿namespace MBW.Libraries.DeviceObjectLib.Utilities
 {
     internal class PathUtils
     {

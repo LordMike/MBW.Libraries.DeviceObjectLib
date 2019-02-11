@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // ReSharper disable InconsistentNaming
 // ReSharper disable MemberCanBePrivate.Global
 
-namespace DeviceObjectLib.Objects
+namespace MBW.Libraries.DeviceObjectLib.Objects
 {
     [StructLayout(LayoutKind.Sequential)]
     internal struct UNICODE_STRING : IDisposable

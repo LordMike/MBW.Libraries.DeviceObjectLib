@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
-using DeviceObjectLib.Utilities;
 
-namespace DeviceObjectLib.Objects
+namespace MBW.Libraries.DeviceObjectLib.Objects
 {
     [StructLayout(LayoutKind.Sequential)]
     // ReSharper disable once InconsistentNaming

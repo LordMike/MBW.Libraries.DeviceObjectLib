@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace DeviceObjectLib.Utilities
+namespace MBW.Libraries.DeviceObjectLib.Utilities
 {
     internal class UnmanagedMemory : IDisposable
     {

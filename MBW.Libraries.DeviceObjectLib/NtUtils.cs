@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
-using DeviceObjectLib.Objects;
-using DeviceObjectLib.ObjectTypes;
-using DeviceObjectLib.Utilities;
+using MBW.Libraries.DeviceObjectLib.Objects;
+using MBW.Libraries.DeviceObjectLib.ObjectTypes;
+using MBW.Libraries.DeviceObjectLib.Utilities;
 
-namespace DeviceObjectLib
+namespace MBW.Libraries.DeviceObjectLib
 {
     public static class NtUtils
     {

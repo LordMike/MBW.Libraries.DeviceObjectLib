@@ -1,5 +1,5 @@
 ﻿// ReSharper disable InconsistentNaming
-namespace DeviceObjectLib
+namespace MBW.Libraries.DeviceObjectLib
 {
     internal static class StaticStrings
     {

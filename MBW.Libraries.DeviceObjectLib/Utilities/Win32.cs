@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Runtime.InteropServices;
-using DeviceObjectLib.Objects;
+using MBW.Libraries.DeviceObjectLib.Objects;
+
 // ReSharper disable InconsistentNaming
 
-namespace DeviceObjectLib.Utilities
+namespace MBW.Libraries.DeviceObjectLib.Utilities
 {
     internal static class Win32
     {

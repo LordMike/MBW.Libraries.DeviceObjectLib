@@ -31,9 +31,8 @@ namespace MBW.Libraries.DeviceObjectLib.Objects
         {
             get
             {
-                return (UNICODE_STRING)Marshal.PtrToStructure(objectName, typeof(UNICODE_STRING));
+                return Marshal.PtrToStructure<UNICODE_STRING>(objectName);
             }
-
             set
             {
                 bool fDeleteOld = objectName != IntPtr.Zero;

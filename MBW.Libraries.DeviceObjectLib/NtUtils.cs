@@ -30,7 +30,7 @@ namespace MBW.Libraries.DeviceObjectLib
 
             using (directoryHandle)
             {
-                uint singleDirInfo = (uint)Marshal.SizeOf(typeof(OBJECT_DIRECTORY_INFORMATION));
+                uint singleDirInfo = (uint)Marshal.SizeOf<OBJECT_DIRECTORY_INFORMATION>();
                 using (UnmanagedMemory mem = new UnmanagedMemory((int)(256 * singleDirInfo)))
                 {
                     bool restart = true;
@@ -47,7 +47,7 @@ namespace MBW.Libraries.DeviceObjectLib
 
                         while (true)
                         {
-                            OBJECT_DIRECTORY_INFORMATION dir = (OBJECT_DIRECTORY_INFORMATION)Marshal.PtrToStructure(ptr, typeof(OBJECT_DIRECTORY_INFORMATION));
+                            OBJECT_DIRECTORY_INFORMATION dir = Marshal.PtrToStructure<OBJECT_DIRECTORY_INFORMATION>(ptr);
                             ptr = new IntPtr(ptr.ToInt64() + (int)singleDirInfo);
 
                             if (dir.Name.Length == 0)

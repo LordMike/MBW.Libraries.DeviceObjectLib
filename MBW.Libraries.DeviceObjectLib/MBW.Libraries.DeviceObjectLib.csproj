@@ -5,9 +5,6 @@
     <TargetFramework>netstandard1.3</TargetFramework>
     <VersionPrefix>0.2.0</VersionPrefix>
 
-    <AssemblyTitle>MBW.Libraries.DeviceObjectLib</AssemblyTitle>
-    <AssemblyName>MBW.Libraries.DeviceObjectLib</AssemblyName>
-
     <AssemblyOriginatorKeyFile>../SigningKey.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>
     <PublicSign>true</PublicSign>
@@ -19,7 +16,6 @@
 
   <!-- Packaging -->
   <PropertyGroup>
-    <PackageId>MBW.Libraries.DeviceObjectLib</PackageId>
     <Authors>LordMike</Authors>
     <Description>Library to interact with Windows' Device Object Tree, much like sysinternals Winobj tool</Description>
 

@@ -13,7 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\DeviceObjectLib\DeviceObjectLib.csproj" />
+    <ProjectReference Include="..\..\MBW.Libraries.DeviceObjectLib\MBW.Libraries.DeviceObjectLib.csproj" />
   </ItemGroup>
 
 </Project>

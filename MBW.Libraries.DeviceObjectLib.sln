@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26114.2
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceObjectLib", "DeviceObjectLib\DeviceObjectLib.csproj", "{7D920E21-0DBC-4268-95C4-535F9FD9D99D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MBW.Libraries.DeviceObjectLib", "MBW.Libraries.DeviceObjectLib\MBW.Libraries.DeviceObjectLib.csproj", "{7D920E21-0DBC-4268-95C4-535F9FD9D99D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{15494560-6CD7-420D-BBFC-55A84BEE3A8E}"
 EndProject

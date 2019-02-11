@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using DeviceObjectLib.Objects;
 using DeviceObjectLib.ObjectTypes;
@@ -29,7 +30,7 @@ namespace DeviceObjectLib
 
             using (directoryHandle)
             {
-                uint singleDirInfo = MarshalHelper.SizeOf<OBJECT_DIRECTORY_INFORMATION>();
+                uint singleDirInfo = (uint)Marshal.SizeOf(typeof(OBJECT_DIRECTORY_INFORMATION));
                 using (UnmanagedMemory mem = new UnmanagedMemory((int)(256 * singleDirInfo)))
                 {
                     bool restart = true;
@@ -46,7 +47,7 @@ namespace DeviceObjectLib
 
                         while (true)
                         {
-                            OBJECT_DIRECTORY_INFORMATION dir = ptr.ToStructure<OBJECT_DIRECTORY_INFORMATION>();
+                            OBJECT_DIRECTORY_INFORMATION dir = (OBJECT_DIRECTORY_INFORMATION)Marshal.PtrToStructure(ptr, typeof(OBJECT_DIRECTORY_INFORMATION));
                             ptr = new IntPtr(ptr.ToInt64() + (int)singleDirInfo);
 
                             if (dir.Name.Length == 0)

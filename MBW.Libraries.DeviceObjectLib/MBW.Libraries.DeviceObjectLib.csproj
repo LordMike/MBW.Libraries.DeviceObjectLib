@@ -2,8 +2,7 @@
 
   <!-- Project -->
   <PropertyGroup>
-    <!--<TargetFrameworks>net20;net35;net40;netstandard1.3;netstandard2.0</TargetFrameworks>-->
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard1.3</TargetFramework>
     <VersionPrefix>0.2.0</VersionPrefix>
 
     <AssemblyTitle>MBW.Libraries.DeviceObjectLib</AssemblyTitle>
@@ -20,45 +19,15 @@
 
   <!-- Packaging -->
   <PropertyGroup>
-    <Description>Library to interact with Windows' Device Object Tree, much like sysinternals Winobj tool</Description>
-    <Authors>LordMike</Authors>
     <PackageId>MBW.Libraries.DeviceObjectLib</PackageId>
+    <Authors>LordMike</Authors>
+    <Description>Library to interact with Windows' Device Object Tree, much like sysinternals Winobj tool</Description>
+
     <PackageTags>winobj</PackageTags>
     <PackageProjectUrl>https://github.com/lordmike/MBW.Libraries.DeviceObjectLib</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/lordmike/MBW.Libraries.DeviceObjectLib/blob/master/LICENSE.txt</PackageLicenseUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/lordmike/MBW.Libraries.DeviceObjectLib</RepositoryUrl>
   </PropertyGroup>
-
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net20' ">
-    <Reference Include="System" />
-  </ItemGroup>
-
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net35' ">
-    <Reference Include="System" />
-  </ItemGroup>
-
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net40' ">
-    <Reference Include="System" />
-    <Reference Include="Microsoft.CSharp" />
-  </ItemGroup>
-
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'net20' ">
-    <DefineConstants>$(DefineConstants);NET20</DefineConstants>
-  </PropertyGroup>
-
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard1.3' ">
-    <DefineConstants>$(DefineConstants);NETCORE</DefineConstants>
-  </PropertyGroup>
-
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.3' ">
-    <PackageReference Include="Microsoft.Win32.Primitives" Version="4.0.1" />
-    <PackageReference Include="System.Collections" Version="4.0.11" />
-    <PackageReference Include="System.Linq" Version="4.1.0" />
-    <PackageReference Include="System.Runtime" Version="4.1.0" />
-    <PackageReference Include="System.Runtime.Extensions" Version="4.1.0" />
-    <PackageReference Include="System.Runtime.InteropServices" Version="4.1.0" />
-    <PackageReference Include="System.Text.RegularExpressions" Version="4.1.0" />
-  </ItemGroup>
 
 </Project>

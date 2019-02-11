@@ -32,7 +32,7 @@ namespace DeviceObjectLib.Objects
         {
             get
             {
-                return objectName.ToStructure<UNICODE_STRING>();
+                return (UNICODE_STRING)Marshal.PtrToStructure(objectName, typeof(UNICODE_STRING));
             }
 
             set
@@ -48,7 +48,7 @@ namespace DeviceObjectLib.Objects
         {
             if (objectName != IntPtr.Zero)
             {
-                MarshalHelper.DestroyStructure<UNICODE_STRING>(objectName);
+                Marshal.DestroyStructure(objectName, typeof(UNICODE_STRING));
                 Marshal.FreeHGlobal(objectName);
                 objectName = IntPtr.Zero;
             }

@@ -1,19 +1,19 @@
 image: Visual Studio 2017
 build_script:
 - ps: >-
-    [xml]$doc = (Get-Content .\DeviceObjectLib\DeviceObjectLib.csproj)
+    [xml]$doc = (Get-Content .\MBW.Libraries.DeviceObjectLib\MBW.Libraries.DeviceObjectLib.csproj)
 
     [string]$version = $doc.Project.PropertyGroup.VersionPrefix
     
     Update-AppveyorBuild -Version "$($version.Trim()).$env:APPVEYOR_BUILD_NUMBER"
 - ps: # Library
-- ps: msbuild /t:Build /p:Configuration=Release DeviceObjectLib
+- ps: msbuild /t:Build /p:Configuration=Release MBW.Libraries.DeviceObjectLib
 - ps: # Pack Library
-- ps: msbuild /t:Pack /p:Configuration=Release /p:OutputPath=..\Nuget\ DeviceObjectLib
+- ps: msbuild /t:Pack /p:Configuration=Release /p:OutputPath=..\Nuget\ MBW.Libraries.DeviceObjectLib
 - ps: # Utilities
+- ps: msbuild /t:Build /p:Configuration=Release Examples\DumpToJson
+- ps: msbuild /t:Build /p:Configuration=Release Examples\EnumerateDisks
 - ps: msbuild /t:Build /p:Configuration=Release Examples\ListAllObjects
-- ps: msbuild /t:Build /p:Configuration=Release Examples\ListAllObjectsAndLinks
-- ps: msbuild /t:Build /p:Configuration=Release Examples\ShowObjectTypes
 install:
 - msbuild /t:Restore
 artifacts:

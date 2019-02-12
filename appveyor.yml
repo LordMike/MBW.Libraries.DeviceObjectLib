@@ -7,7 +7,7 @@ build_script:
     
     Update-AppveyorBuild -Version "$($version.Trim()).$env:APPVEYOR_BUILD_NUMBER"
 - ps: dotnet build --no-restore -c Release
-- ps: dotnet pack --no-build -c Release --include-symbols -p:SymbolPackageFormat=snupkg
+- ps: dotnet pack --no-build -c Release --include-symbols
 install:
 - dotnet restore
 artifacts:

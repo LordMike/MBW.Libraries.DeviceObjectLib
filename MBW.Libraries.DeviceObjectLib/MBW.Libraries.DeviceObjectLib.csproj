@@ -3,7 +3,8 @@
   <!-- Project -->
   <PropertyGroup>
     <TargetFramework>netstandard1.3</TargetFramework>
-    <VersionPrefix>0.2.0</VersionPrefix>
+    <VersionPrefix>0.3.0</VersionPrefix>
+    <VersionSuffix>alpha</VersionSuffix>
 
     <AssemblyOriginatorKeyFile>../SigningKey.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>

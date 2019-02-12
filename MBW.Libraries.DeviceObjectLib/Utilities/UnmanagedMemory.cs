@@ -5,31 +5,35 @@ namespace MBW.Libraries.DeviceObjectLib.Utilities
 {
     internal class UnmanagedMemory : IDisposable
     {
-        private IntPtr _handle;
-
         public int Bytes { get; }
 
-        public IntPtr Handle => _handle;
+        public IntPtr Handle { get; private set; }
 
         public UnmanagedMemory(int bytes)
         {
             Bytes = bytes;
-            _handle = Marshal.AllocHGlobal(bytes);
+            Handle = Marshal.AllocHGlobal(bytes);
         }
 
         public UnmanagedMemory(byte[] data)
         {
-            _handle = Marshal.AllocHGlobal(data.Length);
+            Handle = Marshal.AllocHGlobal(data.Length);
             Bytes = data.Length;
             Marshal.Copy(data, 0, Handle, data.Length);
         }
 
         public void Dispose()
         {
-            if (_handle != IntPtr.Zero)
-                Marshal.FreeHGlobal(_handle);
+            if (Handle != IntPtr.Zero)
+                Marshal.FreeHGlobal(Handle);
 
-            _handle = IntPtr.Zero;
+            Handle = IntPtr.Zero;
+        }
+
+        public void Clear()
+        {
+            for (int i = 0; i < Bytes; i++)
+                Marshal.WriteByte(Handle, i, 0);
         }
     }
 }

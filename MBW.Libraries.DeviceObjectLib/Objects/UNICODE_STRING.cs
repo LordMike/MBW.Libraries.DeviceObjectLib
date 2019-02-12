@@ -21,10 +21,10 @@ namespace MBW.Libraries.DeviceObjectLib.Objects
             buffer = Marshal.StringToHGlobalUni(s);
         }
 
-        public UNICODE_STRING(int length)
+        public UNICODE_STRING(ushort bytes)
         {
             Length = 0;
-            MaximumLength = (ushort)(length * 2 + 2);
+            MaximumLength = (ushort)(bytes + 1);
             buffer = Marshal.AllocHGlobal(MaximumLength);
         }
 
@@ -36,7 +36,7 @@ namespace MBW.Libraries.DeviceObjectLib.Objects
 
         public override string ToString()
         {
-            return Marshal.PtrToStringUni(buffer);
+            return Marshal.PtrToStringUni(buffer, Length / 2);
         }
     }
 }

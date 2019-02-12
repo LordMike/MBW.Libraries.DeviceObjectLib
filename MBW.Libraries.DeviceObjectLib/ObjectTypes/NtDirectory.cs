@@ -11,7 +11,7 @@ namespace MBW.Libraries.DeviceObjectLib.ObjectTypes
 
         public IEnumerable<NtObjectBase> ListDirectory(bool recurse = false, WellKnownType filterType = WellKnownType.Unknown)
         {
-            return NtUtils.ListDirectory(FullName, recurse, filterType);
+            return NtObjects.Instance.ListDirectory(FullName, recurse, filterType);
         }
     }
 }

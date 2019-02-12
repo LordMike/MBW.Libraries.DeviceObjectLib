@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using MBW.Libraries.DeviceObjectLib.Objects;
+using Microsoft.Win32.SafeHandles;
 
 // ReSharper disable InconsistentNaming
 
@@ -10,13 +11,13 @@ namespace MBW.Libraries.DeviceObjectLib.Utilities
     {
         [DllImport("ntdll.dll")]
         public static extern NtStatus NtOpenDirectoryObject(
-            out IntPtr DirectoryHandle,
+            out SafeFileHandle DirectoryHandle,
             DirectoryAccessEnum DesiredAccess,
             ref OBJECT_ATTRIBUTES ObjectAttributes);
 
         [DllImport("ntdll.dll")]
         public static extern NtStatus NtQueryDirectoryObject(
-            IntPtr DirectoryHandle,
+            SafeFileHandle DirectoryHandle,
             IntPtr Buffer,
             int Length,
             bool ReturnSingleEntry,
@@ -26,13 +27,13 @@ namespace MBW.Libraries.DeviceObjectLib.Utilities
 
         [DllImport("ntdll.dll")]
         public static extern NtStatus NtOpenSymbolicLinkObject(
-            out IntPtr LinkHandle,
+            out SafeFileHandle LinkHandle,
             DirectoryAccessEnum DesiredAccess,
             ref OBJECT_ATTRIBUTES ObjectAttributes);
 
         [DllImport("ntdll.dll")]
         public static extern NtStatus NtQuerySymbolicLinkObject(
-            IntPtr LinkHandle,
+            SafeFileHandle LinkHandle,
             ref UNICODE_STRING LinkTarget,
             out int ReturnedLength);
 

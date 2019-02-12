@@ -1,17 +1,16 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26114.2
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MBW.Libraries.DeviceObjectLib", "MBW.Libraries.DeviceObjectLib\MBW.Libraries.DeviceObjectLib.csproj", "{7D920E21-0DBC-4268-95C4-535F9FD9D99D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MBW.Libraries.DeviceObjectLib", "MBW.Libraries.DeviceObjectLib\MBW.Libraries.DeviceObjectLib.csproj", "{7D920E21-0DBC-4268-95C4-535F9FD9D99D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{15494560-6CD7-420D-BBFC-55A84BEE3A8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListAllObjects", "Examples\ListAllObjects\ListAllObjects.csproj", "{A2B4BEB3-D9FE-4E65-B6F5-59F1B7A4B63D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListAllObjects", "Examples\ListAllObjects\ListAllObjects.csproj", "{A2B4BEB3-D9FE-4E65-B6F5-59F1B7A4B63D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListAllObjectsAndLinks", "Examples\ListAllObjectsAndLinks\ListAllObjectsAndLinks.csproj", "{2BD2A414-437A-46B9-BDB2-CE2B898BDBB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnumerateDisks", "Examples\EnumerateDisks\EnumerateDisks.csproj", "{932DDCF6-E927-4345-B863-0B287B4256A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShowObjectTypes", "Examples\ShowObjectTypes\ShowObjectTypes.csproj", "{7D2B4E68-15F0-4809-A8E8-267D5F78AE51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DumpToJson", "Examples\DumpToJson\DumpToJson.csproj", "{171A1E30-1BE7-4F1E-8A2F-29EC32081ADE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,21 +26,24 @@ Global
 		{A2B4BEB3-D9FE-4E65-B6F5-59F1B7A4B63D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2B4BEB3-D9FE-4E65-B6F5-59F1B7A4B63D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2B4BEB3-D9FE-4E65-B6F5-59F1B7A4B63D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2BD2A414-437A-46B9-BDB2-CE2B898BDBB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2BD2A414-437A-46B9-BDB2-CE2B898BDBB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2BD2A414-437A-46B9-BDB2-CE2B898BDBB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2BD2A414-437A-46B9-BDB2-CE2B898BDBB6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7D2B4E68-15F0-4809-A8E8-267D5F78AE51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7D2B4E68-15F0-4809-A8E8-267D5F78AE51}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7D2B4E68-15F0-4809-A8E8-267D5F78AE51}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7D2B4E68-15F0-4809-A8E8-267D5F78AE51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{932DDCF6-E927-4345-B863-0B287B4256A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{932DDCF6-E927-4345-B863-0B287B4256A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{932DDCF6-E927-4345-B863-0B287B4256A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{932DDCF6-E927-4345-B863-0B287B4256A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{171A1E30-1BE7-4F1E-8A2F-29EC32081ADE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{171A1E30-1BE7-4F1E-8A2F-29EC32081ADE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{171A1E30-1BE7-4F1E-8A2F-29EC32081ADE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{171A1E30-1BE7-4F1E-8A2F-29EC32081ADE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A2B4BEB3-D9FE-4E65-B6F5-59F1B7A4B63D} = {15494560-6CD7-420D-BBFC-55A84BEE3A8E}
-		{2BD2A414-437A-46B9-BDB2-CE2B898BDBB6} = {15494560-6CD7-420D-BBFC-55A84BEE3A8E}
-		{7D2B4E68-15F0-4809-A8E8-267D5F78AE51} = {15494560-6CD7-420D-BBFC-55A84BEE3A8E}
+		{932DDCF6-E927-4345-B863-0B287B4256A4} = {15494560-6CD7-420D-BBFC-55A84BEE3A8E}
+		{171A1E30-1BE7-4F1E-8A2F-29EC32081ADE} = {15494560-6CD7-420D-BBFC-55A84BEE3A8E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E39734DF-4ECB-4E68-A7AA-B004EBCE7D13}
 	EndGlobalSection
 EndGlobal

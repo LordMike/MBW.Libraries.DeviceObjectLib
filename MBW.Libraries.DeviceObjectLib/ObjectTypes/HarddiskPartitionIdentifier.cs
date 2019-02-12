@@ -28,5 +28,18 @@
         {
             return $"Harddisk{Harddisk}Partition{Partition}";
         }
+
+        public bool TryGetVolume(out HarddiskVolumeIdentifier volumeIdentifier)
+        {
+            volumeIdentifier = null;
+
+            if (!TryGetSymbolicLinkTarget(out string target))
+                return false;
+
+            NtObjectBase obj = NtObjects.Instance.GetSingleObject(target);
+            volumeIdentifier = obj as HarddiskVolumeIdentifier;
+
+            return volumeIdentifier != null;
+        }
     }
 }

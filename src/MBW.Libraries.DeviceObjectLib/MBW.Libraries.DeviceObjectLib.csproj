@@ -1,0 +1,10 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\imports\Library.targets" />
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.3</TargetFramework>
+    <Description>Library to interact with Windows' Device Object Tree, much like sysinternals Winobj tool</Description>
+    <PackageTags>winobj</PackageTags>
+  </PropertyGroup>
+
+</Project>

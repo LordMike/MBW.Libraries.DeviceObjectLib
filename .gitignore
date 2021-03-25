@@ -1,9 +1,5 @@
+.vs/
 bin/
 obj/
-
-*.suo
 *.user
-*.lock.json
-
-.vs/
-Nuget/
+Build/

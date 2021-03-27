@@ -1,8 +1,7 @@
-DeviceObjectLib
+DeviceObjectLib [![Generic Build](https://github.com/LordMike/MBW.Libraries.DeviceObjectLib/actions/workflows/dotnet.yml/badge.svg)](https://github.com/LordMike/MBW.Libraries.DeviceObjectLib/actions/workflows/dotnet.yml) [![Nuget](https://img.shields.io/nuget/v/MBW.Libraries.DeviceObjectLib)](https://www.nuget.org/packages/MBW.Libraries.DeviceObjectLib)
 ==================
-A C# Library to work with the Win32 Windows Object Tree
 
-[![Build status](https://ci.appveyor.com/api/projects/status/iyhicxvudpeyypxg?svg=true)](https://ci.appveyor.com/project/LordMike/deviceobjectlib)
+A C# Library to work with the Win32 Windows Object Tree
 
 ### Reasons
 

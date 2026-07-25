@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <IsPackable>true</IsPackable>
     <TargetFrameworks>netstandard1.3;netstandard2.0</TargetFrameworks>
     <Description>Library to interact with Windows' Device Object Tree, much like sysinternals Winobj tool</Description>
     <PackageTags>win32 winobj</PackageTags>
